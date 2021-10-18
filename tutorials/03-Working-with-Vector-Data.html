@@ -441,7 +441,7 @@
 <span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span> <span class="c1"># used for data manipulation</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span> <span class="c1"># useful in some spatial operations</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span> <span class="c1"># for plotting</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">zeallot</span><span class="p">)</span> <span class="c1"># used for unpacking variables</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span> <span class="c1"># for data cleaning</span>
 
 <span class="nf">source</span><span class="p">(</span><span class="s">&#39;../scripts/helpers.R&#39;</span><span class="p">)</span> <span class="c1"># helper script, note that &#39;../&#39; is used to change into the directory above the directory this notebook is in</span>
 </pre></div>
@@ -1180,49 +1180,7 @@ First 5 geometries:
 </div>
 </div>
 <br>
-<p>If we were to repeat this with the roads dataframe that is in EPSG:4326 we produce very different results, in fact we can’t even see the original road. This is because the CRS is in units of degrees rather than metres (approximately the conversion is <span class="math notranslate nohighlight">\(0.001^{\circ} \rightarrow 111 m\)</span>).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df_road</span> <span class="o">&lt;-</span> <span class="n">df_africa_roads</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">df_buffered_road</span> <span class="o">&lt;-</span> <span class="nf">st_buffer</span><span class="p">(</span><span class="n">df_road</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="m">5000</span><span class="p">)</span>
-
-<span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
-    <span class="nf">geom_sf</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_buffered_road</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;yellow&#39;</span><span class="p">)</span> <span class="o">+</span> 
-    <span class="nf">geom_sf</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_road</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">)</span> <span class="o">+</span> 
-    <span class="n">transparent_theme</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in st_buffer.sfc(st_geometry(x), dist, nQuadSegs, endCapStyle = endCapStyle, :
-&quot;st_buffer does not correctly buffer longitude/latitude data&quot;dist is assumed to be in decimal degrees (arc_degrees).
-</pre></div>
-</div>
-<img alt="../_images/03-Working-with-Vector-Data_69_1.png" src="../_images/03-Working-with-Vector-Data_69_1.png" />
-</div>
-</div>
-<br>
-<p>We can achieve similar results as with 5km using a buffer distance of only 0.05 degrees. However, it should be noted that it is best to carry out buffering in a projected rather than geographic coordinate system (2D not 3D).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df_road</span> <span class="o">&lt;-</span> <span class="n">df_africa_roads</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">df_buffered_road</span> <span class="o">&lt;-</span> <span class="nf">st_buffer</span><span class="p">(</span><span class="n">df_road</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="m">0.05</span><span class="p">)</span>
-
-<span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
-    <span class="nf">geom_sf</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_buffered_road</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;yellow&#39;</span><span class="p">)</span> <span class="o">+</span> 
-    <span class="nf">geom_sf</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_road</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">)</span> <span class="o">+</span> 
-    <span class="n">transparent_theme</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in st_buffer.sfc(st_geometry(x), dist, nQuadSegs, endCapStyle = endCapStyle, :
-&quot;st_buffer does not correctly buffer longitude/latitude data&quot;dist is assumed to be in decimal degrees (arc_degrees).
-</pre></div>
-</div>
-<img alt="../_images/03-Working-with-Vector-Data_71_1.png" src="../_images/03-Working-with-Vector-Data_71_1.png" />
-</div>
-</div>
+<p>Previously, if we were to repeat this with the roads dataframe that is in EPSG:4326 we would produce very different results. However, now it seems that st_buffer automatically does the units conversion.(approximately the conversion is <span class="math notranslate nohighlight">\(0.001^{\circ} \rightarrow 111 m\)</span>).</p>
 <br>
 <p>We’re now ready to ask the question we were interested in, namely what areas are within 5km of roads? to speed up the analysis we’ll first combine it into a single Multipolygon.</p>
 <p><font color='red'>N.b. Depending on the size of your country and how many roads it contains this may take up to a few minutes</font></p>
@@ -1239,7 +1197,7 @@ First 5 geometries:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_73_0.png" src="../_images/03-Working-with-Vector-Data_73_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_70_0.png" src="../_images/03-Working-with-Vector-Data_70_0.png" />
 </div>
 </div>
 <br>
@@ -1257,7 +1215,7 @@ First 5 geometries:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_75_0.png" src="../_images/03-Working-with-Vector-Data_75_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_72_0.png" src="../_images/03-Working-with-Vector-Data_72_0.png" />
 </div>
 </div>
 <br>
@@ -1277,7 +1235,7 @@ First 5 geometries:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_77_0.png" src="../_images/03-Working-with-Vector-Data_77_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_74_0.png" src="../_images/03-Working-with-Vector-Data_74_0.png" />
 </div>
 </div>
 <br>
@@ -1298,7 +1256,7 @@ First 5 geometries:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_79_0.png" src="../_images/03-Working-with-Vector-Data_79_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_76_0.png" src="../_images/03-Working-with-Vector-Data_76_0.png" />
 </div>
 </div>
 <br>
@@ -1321,7 +1279,7 @@ operation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_81_0.png" src="../_images/03-Working-with-Vector-Data_81_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_78_0.png" src="../_images/03-Working-with-Vector-Data_78_0.png" />
 </div>
 </div>
 <br>
@@ -1338,7 +1296,7 @@ operation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-Working-with-Vector-Data_83_0.png" src="../_images/03-Working-with-Vector-Data_83_0.png" />
+<img alt="../_images/03-Working-with-Vector-Data_80_0.png" src="../_images/03-Working-with-Vector-Data_80_0.png" />
 </div>
 </div>
 <br>
@@ -1359,7 +1317,7 @@ operation.</p>
 &quot;attribute variables are assumed to be spatially constant throughout all geometries&quot;
 </pre></div>
 </div>
-<img alt="../_images/03-Working-with-Vector-Data_85_1.png" src="../_images/03-Working-with-Vector-Data_85_1.png" />
+<img alt="../_images/03-Working-with-Vector-Data_82_1.png" src="../_images/03-Working-with-Vector-Data_82_1.png" />
 </div>
 </div>
 <br>
@@ -1380,7 +1338,7 @@ operation.</p>
 &quot;attribute variables are assumed to be spatially constant throughout all geometries&quot;
 </pre></div>
 </div>
-<img alt="../_images/03-Working-with-Vector-Data_87_1.png" src="../_images/03-Working-with-Vector-Data_87_1.png" />
+<img alt="../_images/03-Working-with-Vector-Data_84_1.png" src="../_images/03-Working-with-Vector-Data_84_1.png" />
 </div>
 </div>
 <br>
