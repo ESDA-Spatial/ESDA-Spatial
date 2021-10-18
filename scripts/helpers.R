@@ -48,27 +48,36 @@ transform_bbox_corner_crs <- function(min_x_in, max_x_in,
 get_geo_df_plot_lims <- function(df, crs_out=NA){
     # Identify limits
     geo_df_limits <- get_geo_df_limits(df)
-    c(min_x_out, max_x_out, min_y_out, max_y_out) %<-% geo_df_limits
-
+    
+    min_x_out <- geo_df_limits[1] 
+    max_x_out <- geo_df_limits[2] 
+    min_y_out <- geo_df_limits[3] 
+    max_y_out <- geo_df_limits[4] 
+    
     # Optionally convert to new crs
     if (!is.na(crs_out)) {
         crs_in <- extract_epsg_from_df(df) %>%
-                    strtoi() %>%
-                    st_crs
-
+            strtoi() %>%
+            st_crs
+        
         out_coords <- transform_bbox_corner_crs(min_x_in, max_x_in, 
                                                 min_y_in, max_y_in, 
                                                 crs_in, crs_out)
-
-        c(min_x_out, max_x_out, min_y_out, max_y_out) %<-% out_coords
+        
+        #   c(min_x_out, max_x_out, min_y_out, max_y_out) %<-% out_coords
+        min_x_out <- out_coords[1] 
+        max_x_out <- out_coords[2] 
+        min_y_out <- out_coords[3] 
+        max_y_out <- out_coords[4]
     }
-
+    
     # Convert to ggplot2 coordinate limits
     coord_lims <- coord_sf(xlim=c(min_x_out, max_x_out), 
                            ylim=c(min_y_out, max_y_out))
     
     return(coord_lims)
 }
+
 
 get_data_dir <- function(){
     cwd <- getwd()
