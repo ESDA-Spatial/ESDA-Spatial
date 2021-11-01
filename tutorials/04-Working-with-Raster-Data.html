@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Spatial Interpolation - Part 1" href="05-Spatial-Interpolation-Part-1.html" />
+    <link rel="next" title="Coursework Support" href="07-Coursework-Support.html" />
     <link rel="prev" title="Working with Vector Data" href="03-Working-with-Vector-Data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -107,11 +107,6 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Working with Raster Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-Spatial-Interpolation-Part-1.html">
-   Spatial Interpolation - Part 1
   </a>
  </li>
  <li class="toctree-l1">
@@ -511,8 +506,9 @@
 <p>For plotting with Ggplot, we’ll convert our raster into a tibble and also remove any <code class="docutils literal notranslate"><span class="pre">NA</span></code> values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tb_zambia_raster_mask</span> <span class="o">&lt;-</span> <span class="nf">gplot_data</span><span class="p">(</span><span class="n">zambia_raster_mask</span><span class="p">)</span>
-<span class="n">tb_zambia_raster_mask</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">tb_zambia_raster_mask</span><span class="p">,</span> <span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">tb_zambia_raster_mask</span><span class="o">$</span><span class="n">value</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tb_zambia_raster_mask</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">zambia_raster_mask</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">tb_zambia_raster_mask</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">tb_zambia_raster_mask</span><span class="p">,</span> <span class="n">tb_zambia_raster_mask</span><span class="o">$</span><span class="n">layer</span> <span class="o">!=</span> <span class="s">&#39;NA&#39;</span><span class="p">)</span>
+<span class="n">tb_zambia_raster_mask</span> <span class="o">&lt;-</span> <span class="nf">as_tibble</span><span class="p">(</span><span class="n">tb_zambia_raster_mask</span><span class="p">)</span>
 
 <span class="nf">head</span><span class="p">(</span><span class="n">tb_zambia_raster_mask</span><span class="p">)</span>
 </pre></div>
@@ -961,7 +957,9 @@ values     : 0, 1  (min, max)
 <p>The <code class="docutils literal notranslate"><span class="pre">raster</span></code> package contains the function <code class="docutils literal notranslate"><span class="pre">rasterize</span></code> which we’ll use to convert from the country polygons to a raster. We provide it the vector objects, the raster grid we wish to rasterize onto, as well as the column that contains the values we wish to be used in the raster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rasterized_country_areas</span> <span class="o">&lt;-</span> <span class="nf">rasterize</span><span class="p">(</span><span class="n">df_countrys</span><span class="p">,</span> <span class="n">zambia_solar_reproj_regrid</span><span class="p">,</span> <span class="s">&#39;area&#39;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rm</span><span class="p">(</span><span class="n">list</span><span class="o">=</span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">ls</span><span class="p">(),</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;df_countrys&quot;</span><span class="p">,</span> <span class="s">&quot;zambia_solar_reproj_regrid&quot;</span><span class="p">)))</span>
+
+<span class="n">rasterized_country_areas</span> <span class="o">&lt;-</span> <span class="nf">rasterize</span><span class="p">(</span><span class="n">df_countrys</span><span class="p">,</span> <span class="n">zambia_solar_reproj_regrid</span><span class="p">,</span> <span class="s">&#39;area&#39;</span><span class="p">)</span>
 
 <span class="nf">plot</span><span class="p">(</span><span class="n">rasterized_country_areas</span><span class="p">)</span>
 </pre></div>
@@ -988,9 +986,10 @@ Warning message in showSRID(SRS_string, format = &quot;PROJ&quot;, multiline = &
 <p>For that we can use the <code class="docutils literal notranslate"><span class="pre">polygonize</span></code> function which converts from rasters to polygons, we can set <code class="docutils literal notranslate"><span class="pre">dissolve</span></code> to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> which will group the resulting polygons based on the raster values (as long as the cells are adjacent).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">polygonized_country_areas</span> <span class="o">&lt;-</span> <span class="nf">rasterToPolygons</span><span class="p">(</span><span class="n">rasterized_country_areas</span><span class="p">,</span> <span class="n">dissolve</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
-
-<span class="nf">head</span><span class="p">(</span><span class="n">polygonized_country_areas</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rasterized_country_areas</span><span class="o">@</span><span class="n">extent</span>
+<span class="n">e</span> <span class="o">&lt;-</span> <span class="nf">as</span><span class="p">(</span><span class="nf">extent</span><span class="p">(</span><span class="m">-55940</span><span class="p">,</span> <span class="m">250000</span><span class="p">,</span> <span class="m">8000000</span><span class="p">,</span> <span class="m">8600000</span><span class="p">),</span> <span class="s">&#39;SpatialPolygons&#39;</span><span class="p">)</span>
+<span class="nf">crs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;+proj=utm +zone=35 +south +a=6378249.145 +b=6356514.966398753 +towgs84=-143,-90,-294,0,0,0,0 +units=m +no_defs &#39;</span>
+<span class="nf">st_crs</span><span class="p">(</span><span class="n">rasterized_country_areas</span><span class="p">)</span> <span class="o">==</span> <span class="nf">st_crs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1012,6 +1011,17 @@ Warning message in showSRID(SRS_string, format = &quot;PROJ&quot;, multiline = &
 </table>
 </div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">crop</span><span class="p">(</span><span class="n">rasterized_country_areas</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="n">polygonised_country_areas</span> <span class="o">&lt;-</span> <span class="nf">rasterToPolygons</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">dissolve</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">polygonized_country_areas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <br>
 <p>When plotted we can see that Zambia has been grouped correctly.</p>
 <div class="cell docutils container">
@@ -1021,7 +1031,7 @@ Warning message in showSRID(SRS_string, format = &quot;PROJ&quot;, multiline = &
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/04-Working-with-Raster-Data_63_0.png" src="../_images/04-Working-with-Raster-Data_63_0.png" />
+<img alt="../_images/04-Working-with-Raster-Data_64_0.png" src="../_images/04-Working-with-Raster-Data_64_0.png" />
 </div>
 </div>
 <br>
@@ -1166,10 +1176,10 @@ Warning message in .local(x, y, ...):
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="05-Spatial-Interpolation-Part-1.html" title="next page">
+        <a class="right-next" href="07-Coursework-Support.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Spatial Interpolation - Part 1</p>
+                <p class="prevnext-title">Coursework Support</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
