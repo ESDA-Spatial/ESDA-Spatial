@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install and load the relevant packages: &#8212; Spatial Analysis for Energy</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Spatial Analysis for Energy</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/Intro.html">
+   UCL Energy Systems &amp; Data Analytics - Spatial Module
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Working-with-Vector-Data.html">
+   Working with Vector Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Working-with-Raster-Data.html">
+   Working with Raster Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Coursework-Support.html">
+   Coursework Support
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Gallery
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/Year-2.html">
+   Second Cohort Map Gallery
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/Year-3.html">
+   Third Cohort Map Gallery
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/Setup.html">
+   Set-Up Instructions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/Jupyter-Anaconda.html">
+   What is Jupyter/Anaconda?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../md/ESDA%20Course.html">
+   ESDA Course
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/Map-Making.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/ESDA-Spatial/ESDA-Spatial/issues/new?title=Issue%20on%20page%20%2Ftutorials/Map-Making.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ESDA-Spatial/ESDA-Spatial/master?urlpath=tree/tutorials/Map-Making.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Install and load the relevant packages:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-the-data">
+   Download the data:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1 style='font-size:3rem;color:orange;'>Map Tutorial in R</h1><h2 style='font-size:2rem;'>Exploring the tmaps package in R for map creation:</h2><div class="section" id="install-and-load-the-relevant-packages">
+<h1>Install and load the relevant packages:<a class="headerlink" href="#install-and-load-the-relevant-packages" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s1">&#39;sf&#39;</span><span class="p">,</span> <span class="s1">&#39;raster&#39;</span><span class="p">,</span> <span class="s1">&#39;dplyr&#39;</span><span class="p">,</span> <span class="s1">&#39;tmap&#39;</span><span class="p">,</span> <span class="s1">&#39;leaflet&#39;</span><span class="p">,</span> <span class="s1">&#39;ggplot2&#39;</span><span class="p">))</span>
+<span class="n">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">tmap</span><span class="p">)</span>  
+<span class="n">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span> 
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>tmaps is the primary package used throughout this tutorial.</p>
+<p>It is flexible map-making package whose syntax is readible and mirrors that of ggplot to create attractive maps.</p>
+<p>Unlike ggplot, tmaps can take on multiple forms of spatial objects with ease.</p>
+<p>To examine the functions of this package we will incorporate the vector and raster files used in tutorials 3 and 4. Once the map-making skills have been developed, they can be used in conjunction with the spatial analysis tools developed in the prior tutorials to create maps much more detailed and meaningful than those created in this tutorial.</p>
+</div>
+<div class="section" id="download-the-data">
+<h1>Download the data:<a class="headerlink" href="#download-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>countries &lt;- read_sf(&quot;data/africa/countries.shp&quot;)
+zambia &lt;- subset(countries, countries$NAME == &#39;Zambia&#39;)
+land_cover &lt;- raster(&#39;data/africa/land_cover.tif&#39;)
+
+# we can then crop the land_use raster to Zambia&#39;s extent as in tutorial 4
+land_cover_zambia &lt;- crop(land_cover, zambia)
+land_cover_zambia &lt;- mask(land_cover_zambia, zambia)
+
+# determine the CRS 
+st_crs(countries)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is necessary to project the files onto the same CRSs.</p>
+<p>When running the line ‘st_crs(countries)’, it can be seen that the CRS connected to the data is WGS 84. This means that its default is a geographical reference system, giving it the units of degrees.</p>
+<p>A crucial component of a map is its scale bar, this contextualises the map as we will see later in the tutorial. It is therefore necessary to project the spatial objects to convert the units into meters such that the units are meaningful. In this context, UTM 35s is an ideal projection for Southern Africa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the relevant CRS</span>
+<span class="n">crs</span> <span class="o">&lt;-</span> <span class="s1">&#39;+proj=utm +zone=35 +south +datum=WGS84 +units=m +no_defs&#39;</span> 
+
+<span class="c1"># convert the sf objects </span>
+<span class="n">countries_utm35s</span> <span class="o">&lt;-</span> <span class="n">st_transform</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">zambia_utm35s</span> <span class="o">&lt;-</span> <span class="n">st_transform</span><span class="p">(</span><span class="n">zambia</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># convert the raster object </span>
+<span class="n">land_cover_zambia_utm35s</span> <span class="o">&lt;-</span> <span class="n">projectRaster</span><span class="p">(</span><span class="n">land_cover_zambia</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a visual comparison of the same objects being present by ggplot2 and tmaps use the code below.</p>
+<p>ggplot easily reads sf objects by using geom_sf(). Characteristics can then be defined in the same line. And subsequent layers added.</p>
+<p>tmaps defines the layer through the tm_shape() function. Characteristics are then added sequentionally through various tm_* functions. In application, * can take the form of ‘fill’, ‘borders’ and ‘polygons’ to name a few.</p>
+<p>New shape layers can be added similarly to ggplot, where the most recent line is presented as the top layer. All subsequent tm_* commands correspond to the most recent tm_shape() layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># continent &amp; country outlines can be represented through ggplot as:</span>
+<span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">geom_sf</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">countries_utm35s</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">theme_bw</span><span class="p">()</span>
+
+<span class="c1"># equivelant representation through tmaps</span>
+<span class="c1"># showing layer development</span>
+<span class="c1">##</span>
+<span class="c1"># add fill with default colouring</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">()</span> 
+<span class="c1"># add border layer only to the map</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">()</span> 
+<span class="c1"># combine these two for a more complete representation</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">()</span> 
+<span class="c1"># this can also be achieved through tm_polygons()  </span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_polygons</span><span class="p">()</span>
+<span class="c1"># you can add detail to each layer  </span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="c1"># selecting a complimentary combination of colours for the map can benefit its readibility significantly</span>
+<span class="c1"># i.e., not using vivid greens and reds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The addition of new layers can be shown by plotting the zambia layer on top of the countries layer.</p>
+<p>New shapes can be added sequentially with a new tm_shape() component. The package applies commands hierarchally where all prompts after a new tm_shape()layer apply to the the most recent shape layer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># highlighting Zambia representated through ggplot</span>
+<span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">geom_sf</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">countries_utm35s</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">geom_sf</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">zambia_utm35s</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">theme_bw</span><span class="p">()</span>
+
+<span class="c1"># represented through tmaps</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">zambia_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>R can have a hard time processing large raster files. Because of this it is necessary that we focus on small areas to help run this tutorial quickly. For this, we can reduce the size of the countries file to match the extent of the zambia file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determining the extent of the zambia file</span>
+<span class="n">ext_zamb</span> <span class="o">&lt;-</span> <span class="n">extent</span><span class="p">(</span><span class="n">zambia_utm35s</span><span class="p">)</span>
+<span class="n">xmin</span> <span class="o">&lt;-</span> <span class="n">ext_zamb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">100000</span>
+<span class="n">xmax</span> <span class="o">&lt;-</span> <span class="n">ext_zamb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">100000</span>
+<span class="n">ymin</span> <span class="o">&lt;-</span> <span class="n">ext_zamb</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="mi">100000</span>
+<span class="n">ymax</span> <span class="o">&lt;-</span> <span class="n">ext_zamb</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="mi">100000</span> <span class="c1"># we change the extent to buffer around the country</span>
+
+<span class="n">reduced_countries_utm35s</span> <span class="o">&lt;-</span> <span class="n">st_crop</span><span class="p">(</span><span class="n">countries_utm35s</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">ymax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, this can be represented through ggplot and a layered tmaps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># represented through ggplot</span>
+<span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">geom_sf</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">reduced_countries_utm35s</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">geom_sf</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">zambia_utm35s</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">theme_bw</span><span class="p">()</span>
+
+<span class="c1"># represented through tmaps</span>
+<span class="n">tm_shape</span><span class="p">(</span><span class="n">reduced_countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">zambia_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further information can be added other than colour. Some common uses are:</p>
+<ol class="simple">
+<li><p>Transparancy (alpha = *)</p></li>
+<li><p>Linewidth (lwd = *)</p></li>
+<li><p>Linetype (lty = *)</p></li>
+</ol>
+<p>You can also save the maps as an object to be added to later in the process. This allows you to keep multiple versions of the map with new layer additions. This is efficient as it means you can change the odd line of code simply rather than route through many lines of layers. The objects saved as class “tmap” and can be plotted using the print() function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_one</span> <span class="o">&lt;-</span> <span class="n">tm_shape</span><span class="p">(</span><span class="n">reduced_countries_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">zambia_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_fill</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_borders</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">class</span><span class="p">(</span><span class="n">map_zambia_one</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_one</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The difference between the ggplot representations and tmaps representations comes when adding a raster layer. This can be done using tm_raster as in the following lines of code.</p>
+<p>First the tm_shape() must be defined with the raster object within it, then the tm_raster() function must be defined. It is the raster function that controls the appearance of the layer. General parameters can be controlled using the tm_layout() function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_two</span> <span class="o">&lt;-</span> <span class="n">map_zambia_one</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">land_cover_zambia_utm35s</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_raster</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are couple of things wrong with this plot.</p>
+<p>First of all, the legend interferes with features on the map making it unclear. You can move the legend either by using the ‘legend.position = *’ element by specifying its location with commands like ‘left’, ‘right’, ‘top’ and ‘bottom’. Alternatively, you can use ‘legend.outside = TRUE’ to take the legend outside of the map.</p>
+<p>Secondly, the legend title is defaulted as the column title, this can make it ugly. Within the tm_raster() function the legend title can be defined by using ‘title = *’.</p>
+<p>Finally, the color doesn’t fit the information. The default colour ramp of yellow-red is suitable for attributes such as solar irradiance. However, a green colour ramp is much better suited for land coverage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># editting the legend</span>
+<span class="n">map_zambia_two</span> <span class="o">&lt;-</span> <span class="n">map_zambia_one</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">land_cover_zambia_utm35s</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_raster</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_two</span><span class="p">)</span>
+<span class="n">map_zambia_two</span> <span class="o">&lt;-</span> <span class="n">map_zambia_one</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">land_cover_zambia_utm35s</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_raster</span><span class="p">()</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">outside</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_two</span><span class="p">)</span>
+
+<span class="c1"># Editing the legend title &amp; changing the colour theme</span>
+<span class="n">legend</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s1">&#39;Land Cover&#39;</span><span class="p">)</span>
+<span class="n">map_zambia_two</span> <span class="o">&lt;-</span> <span class="n">map_zambia_one</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">land_cover_zambia_utm35s</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_raster</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="n">legend</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">outside</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can plot maps side-by-side by using the tmap_arrange() function. This is a useful way to assess progress or to compare feature choices to determine which option works best.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmap_arrange</span><span class="p">(</span><span class="n">map_zambia_one</span><span class="p">,</span> <span class="n">map_zambia_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two vital map elements are a compass, to orientate the map to the viewer, and the scale bar, to contextualise the distance/separation.</p>
+<p>You can edit the characteristics of these elements. Some examples are shown below.</p>
+<p>The arrow type, and position can be edited easily. The compasses position depends on the map’s composition and is best to avoid cluttered areas.</p>
+<p>Scale bars automatically adjust their size based on your specified distance. The units of the inputs are meters, as per the projected CRS.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compass elements</span>
+<span class="c1"># position</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">))</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">))</span>
+<span class="c1"># compass type</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;4star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">))</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;8star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">))</span>
+    
+<span class="c1"># scale bar size </span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_scale_bar</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_scale_bar</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These elements can be edited further. The color, size and alpha of the elements are shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;8star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;8star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;8star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">bg</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_scale_bar</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">bg</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Map elements can have titles added can be added to the map in the tm_layout() function. The legend title can be changed using the ‘title = <em>‘ elements. Title characteristics cam ne modified using ‘title.</em> =’ where the *, in this case, can be replaced with color, size and position among others.</p>
+<p>The map’s main title can be defined using ‘main.title = <em>‘. Similarly to before, the title’s characteristics are defined using ‘main.title.</em> =’, where * can also be replaced with color, size and position among others.</p>
+<p>They can also be used in conjunction for extra detaul.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># types of titles </span>
+<span class="n">map_zambia_two</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Legend&#39;</span><span class="p">)</span>
+    
+<span class="n">map_zambia_two</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">main</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Zambia Test Map&#39;</span><span class="p">)</span>
+
+
+<span class="n">map_zambia_two</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">main</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Zambia Test Map&#39;</span><span class="p">,</span> 
+            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Legend:&#39;</span><span class="p">)</span>
+    
+<span class="c1"># title characteristics </span>
+<span class="n">map_zambia_two</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">main</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Zambia Test Map&#39;</span><span class="p">,</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> 
+            <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">fontface</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-7e0fa539e59b&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">map_zambia_two</span> <span class="o">+</span>
+                    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>The map’s border can be removed using the following code. This can help improve the map’s neatness.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_two</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">frame</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All of these elements together can be used to produce a map of reasonable complexity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_three</span> <span class="o">&lt;-</span> <span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_compass</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;8star&#39;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">bg</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="n">tm_scale_bar</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="n">bg</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">bg</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_layout</span><span class="p">(</span><span class="n">main</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Zambia Test Map&#39;</span><span class="p">,</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">),</span> <span class="n">main</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">fontface</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> 
+            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Legend:&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span> 
+            <span class="n">frame</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_three</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further shape layers can be added through more tm_shape() layers. Following the mechanism in tutorial 3, the cities inside Zambia can be identified.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">&lt;-</span> <span class="n">read_sf</span><span class="p">(</span><span class="s2">&quot;data/africa/cities.shp&quot;</span><span class="p">)</span>
+<span class="n">cities_utm35s</span> <span class="o">&lt;-</span> <span class="n">st_transform</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">cities_utm35s_intersect</span> <span class="o">&lt;-</span> <span class="n">st_intersects</span><span class="p">(</span><span class="n">cities_utm35s</span><span class="p">,</span> <span class="n">zambia_utm35s</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+
+<span class="n">intersected_cities_idxs</span> <span class="o">&lt;-</span> <span class="n">which</span><span class="p">(</span><span class="n">cities_utm35s_intersect</span><span class="p">)</span>
+<span class="c1">#head(intersected_cities_idxs)</span>
+
+<span class="n">idx</span> <span class="o">&lt;-</span> <span class="n">intersected_cities_idxs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cities_utm35s</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">]</span>
+
+<span class="n">zambia_cities_utm35s</span> <span class="o">&lt;-</span> <span class="n">cities_utm35s</span><span class="p">[</span><span class="n">intersected_cities_idxs</span><span class="p">,</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These can be represented in an analogous way to ggplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_two</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">zambia_cities_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_symbols</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">border</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This additional layer will be shown using the mechanisms stated previously. It is often useful to plot the shape layer to represent a characteristic of the layer.</p>
+<p>Before being added to the map, we find the large cities within Zambia. In this case, large cities is defined as all cities that had a population of 50,000 or greater in 1990.</p>
+<p>This, however, makes the map untidy. In order to make the legend neater, the ES90POP column can be edited to show the population in thousdands or millions of people. It is an elemment of the map that significant figures must be suitable for the map’s purpose.</p>
+<p>It is important that the legend titles, given by ‘title.size = *’, must readible. If the line is too long, automatically reducing the fontsize, the symbol ‘\n’ can be used to create a new line.</p>
+<p>Both cases, thousands and millions, are shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># subsetting the df to be only the &#39;big&#39; cities 
+# populations of 50,000+ in 1990
+zambia_big_cities_utm35s &lt;- subset(zambia_cities_utm35s, zambia_cities_utm35s$ES90POP &gt; 50000)
+map_zambia_two + 
+  tm_shape(zambia_big_cities_utm35s) +
+  tm_symbols(col = &#39;black&#39;, size = &#39;ES90POP&#39;, border.col = &#39;white&#39;, shape = 22, 
+             title.size = &#39;1990s Population&#39;)
+# significant figures are important to keep the map neat
+
+# population as thousands of people
+zambia_big_cities_utm35s$ES90POP_neat_thous &lt;- zambia_big_cities_utm35s$ES90POP/1000
+map_zambia_two + 
+  tm_shape(zambia_big_cities_utm35s) +
+  tm_symbols(col = &#39;black&#39;, size = &#39;ES90POP_neat_thous&#39;, border.col = &#39;white&#39;, shape = 22, 
+             title.size = &#39;1990s Population (thousand)&#39;)
+
+# the above map makes the legen title undreadable 
+# &#39;\n&#39; creates a new line
+map_zambia_two + 
+  tm_shape(zambia_big_cities_utm35s) +
+  tm_symbols(col = &#39;black&#39;, size = &#39;ES90POP_neat_thous&#39;, border.col = &#39;white&#39;, shape = 22, 
+             title.size = &#39;1990s Population \n(thousands)&#39;)
+
+# population as millions of people
+zambia_big_cities_utm35s$ES90POP_neat_mil &lt;- zambia_big_cities_utm35s$ES90POP/1000000
+map_zambia_two + 
+  tm_shape(zambia_big_cities_utm35s) +
+  tm_symbols(col = &#39;black&#39;, size = &#39;ES90POP_neat_mil&#39;, border.col = &#39;white&#39;, shape = 22, 
+             title.size = &#39;1990s Population \n(million)&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>These can be combine to form an even more complete map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_zambia_four</span> <span class="o">&lt;-</span> <span class="n">map_zambia_three</span> <span class="o">+</span> 
+  <span class="n">tm_shape</span><span class="p">(</span><span class="n">zambia_big_cities_utm35s</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">tm_symbols</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;ES90POP_neat_mil&#39;</span><span class="p">,</span> <span class="n">border</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span> 
+             <span class="n">title</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;1990s Population </span><span class="se">\n</span><span class="s1">(million)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">map_zambia_four</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The stages of the map-building process can be observed by plotting the four map iterations side-by-side.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### complete map progress:</span>
+<span class="n">tmap_arrange</span><span class="p">(</span><span class="n">map_zambia_one</span><span class="p">,</span> <span class="n">map_zambia_two</span><span class="p">,</span> <span class="n">map_zambia_three</span><span class="p">,</span> <span class="n">map_zambia_four</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The map can be saved from R as a .svg, .pdf, .jpeg and ,tif files. These are completed as:</p>
+<ol class="simple">
+<li><p>tmap_save(map_zambia_four, filename=”map_zambia_four.svg”, height=8.5, width=11, units=”in”, dpi=300)</p></li>
+<li><p>tmap_save(map_zambia_four, filename=”map_zambia_four.pdf”, height=8.5, width=11, units=”in”, dpi=300)</p></li>
+<li><p>tmap_save(map_zambia_four, filename=”map_zambia_four.jpeg”, height=8.5, width=11, units=”in”, dpi=300)</p></li>
+<li><p>tmap_save(map_zambia_four, filename=”map_zambia_four.tiff”, height=8.5, width=11, units=”in”, dpi=300)</p></li>
+</ol>
+<p>In which circumstances would you use each file type?</p>
+<p>it is useful to note that defining the size of the features gives them an absolute size regardless of the map’s size. So, always bear this in mind before exporting the file as the elements can come out in different formats.</p>
+<p>For this example, please assess the difference between the following saves pdf’s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmap_save</span><span class="p">(</span><span class="n">map_zambia_four</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;map_zambia_four_small.pdf&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">tmap_save</span><span class="p">(</span><span class="n">map_zambia_four</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;map_zambia_four_big.pdf&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">8.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h1>Further Reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h1>
+<p>The following are links that motivated this tutorial:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/cartography/vignettes/cartography.html">https://cran.r-project.org/web/packages/cartography/vignettes/cartography.html</a></p></li>
+<li><p><a class="reference external" href="https://geocompr.robinlovelace.net/adv-map.html#introduction-5">https://geocompr.robinlovelace.net/adv-map.html#introduction-5</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=GMi1ThlGFMo&amp;ab_channel=InfoWorld">https://www.youtube.com/watch?v=GMi1ThlGFMo&amp;ab_channel=InfoWorld</a></p></li>
+<li><p><a class="reference external" href="http://www.wvview.org/spatial_analytics/Visualizing_Spatial_Data/_site/Visualize_Spatial_Data.html#write-to-file">http://www.wvview.org/spatial_analytics/Visualizing_Spatial_Data/_site/Visualize_Spatial_Data.html#write-to-file</a></p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESDA-Spatial/ESDA-Spatial",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Ayrton Bourn, Santiago De La Fuente, Camilo Perico, Clem Attwood, Joanna Kuleszo, Dylan Johnson, Harry Wadley<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
