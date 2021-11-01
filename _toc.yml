@@ -5,7 +5,8 @@ parts:
   chapters:
   - file: tutorials/03-Working-with-Vector-Data
   - file: tutorials/04-Working-with-Raster-Data
-  - file: tutorials/05-Spatial-Interpolation-Part-1
+  - file: tutorials/05-Map-Making
+  - file: tutorials/06-Spatial-Interpolation-Part-1
   - file: tutorials/07-Coursework-Support
   
 - caption: Extensions

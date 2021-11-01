@@ -35,8 +35,9 @@ zambia_raster_mask[zambia_raster_mask==0] <- NA
 
 plot(zambia_raster_mask) 
 
-tb_zambia_raster_mask <- gplot_data(zambia_raster_mask)
-tb_zambia_raster_mask <- subset(tb_zambia_raster_mask, !is.na(tb_zambia_raster_mask$value))
+tb_zambia_raster_mask <- as.data.frame(zambia_raster_mask, xy = TRUE)
+tb_zambia_raster_mask <- subset(tb_zambia_raster_mask, tb_zambia_raster_mask$layer != 'NA')
+tb_zambia_raster_mask <- as_tibble(tb_zambia_raster_mask)
 
 head(tb_zambia_raster_mask)
 
@@ -135,11 +136,21 @@ df_countrys$area <- st_area(df_countrys)
 
 plot(df_countrys)
 
+rm(list=setdiff(ls(), c("df_countrys", "zambia_solar_reproj_regrid")))
+
 rasterized_country_areas <- rasterize(df_countrys, zambia_solar_reproj_regrid, 'area')
 
 plot(rasterized_country_areas)
 
-polygonized_country_areas <- rasterToPolygons(rasterized_country_areas, dissolve=TRUE)
+rasterized_country_areas@extent
+e <- as(extent(-55940, 250000, 8000000, 8600000), 'SpatialPolygons')
+crs(e) = '+proj=utm +zone=35 +south +a=6378249.145 +b=6356514.966398753 +towgs84=-143,-90,-294,0,0,0,0 +units=m +no_defs '
+st_crs(rasterized_country_areas) == st_crs(e)
+
+
+r <- crop(rasterized_country_areas, e)
+
+polygonised_country_areas <- rasterToPolygons(r, dissolve = TRUE)
 
 head(polygonized_country_areas)
 
