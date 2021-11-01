@@ -7,11 +7,12 @@ parts:
   - file: tutorials/04-Working-with-Raster-Data
   - file: tutorials/05-Map-Making
   - file: tutorials/06-Spatial-Interpolation-Part-1
-  - file: tutorials/07-Coursework-Support
+  - file: tutorials/07-Spatial-Interpolation-Part-2
+  - file: tutorials/08-Coursework-Support
   
 - caption: Extensions
   chapters:
-  - file: extensions/1-Mapping-with-Ggplot
+  - file: extensions/1-Mapping-with-ggplot
   
 - caption: Gallery
   chapters:
