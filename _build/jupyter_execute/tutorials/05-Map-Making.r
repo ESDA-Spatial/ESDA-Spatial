@@ -36,37 +36,41 @@ ggplot() +
   geom_sf(data = countries_utm35s, color = 'black', fill = 'antiquewhite') +
   theme_bw()
 
-# equivelant representation through tmaps
-# showing layer development
-##
-# add fill with default colouring
+
+# equivelant representation through tmaps showing layer development add fill with default colouring
 tm_shape(countries_utm35s) +
   tm_fill() 
+
 # add border layer only to the map
 tm_shape(countries_utm35s) +
   tm_borders() 
+
 # combine these two for a more complete representation
 tm_shape(countries_utm35s) +
   tm_fill() +
   tm_borders() 
+
 # this can also be achieved through tm_polygons()  
 tm_shape(countries_utm35s) + 
   tm_polygons()
+
 # you can add detail to each layer  
 tm_shape(countries_utm35s) +
   tm_fill(col = 'green') +
   tm_borders(col = 'red')
+
+# selecting a complimentary combination of colours for the map can benefit its readibility significantly i.e., not using vivid greens and reds
 tm_shape(countries_utm35s) +
   tm_fill(col = 'antiquewhite') +
   tm_borders(col = 'black')
-# selecting a complimentary combination of colours for the map can benefit its readibility significantly
-# i.e., not using vivid greens and reds
 
-# highlighting Zambia representated through ggplot
+
 ggplot() +
   geom_sf(data = countries_utm35s, color = 'black', fill = 'antiquewhite') +
   geom_sf(data = zambia_utm35s, color = 'white', fill = 'orange') +
   theme_bw()
+
+
 
 # represented through tmaps
 tm_shape(countries_utm35s) +
@@ -92,6 +96,8 @@ ggplot() +
   geom_sf(data = zambia_utm35s, color = 'white', fill = 'orange') +
   theme_bw()
 
+
+
 # represented through tmaps
 tm_shape(reduced_countries_utm35s) +
   tm_fill(col = 'antiquewhite') +
@@ -112,6 +118,9 @@ print(map_zambia_one)
 map_zambia_two <- map_zambia_one + 
   tm_shape(land_cover_zambia_utm35s) + 
   tm_raster()
+class(map_zambia_two)
+
+
 print(map_zambia_two)
 
 # editting the legend
@@ -120,6 +129,7 @@ map_zambia_two <- map_zambia_one +
   tm_raster() +
   tm_layout(legend.position = c('right', 'bottom'))
 print(map_zambia_two)
+
 map_zambia_two <- map_zambia_one + 
   tm_shape(land_cover_zambia_utm35s) + 
   tm_raster() +
@@ -251,6 +261,4 @@ tmap_arrange(map_zambia_one, map_zambia_two, map_zambia_three, map_zambia_four)
 
 tmap_save(map_zambia_four, filename="map_zambia_four_small.pdf", height=4, width=5, units="in", dpi=300)
 tmap_save(map_zambia_four, filename="map_zambia_four_big.pdf", height=8.5, width=11, units="in", dpi=300)
-
-
 

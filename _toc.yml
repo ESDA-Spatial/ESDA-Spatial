@@ -18,6 +18,7 @@ parts:
   chapters:
   - file: md/Year-2
   - file: md/Year-3
+  - file: md/Year-4
   
 - caption: About
   chapters:
